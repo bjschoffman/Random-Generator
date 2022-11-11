@@ -9,11 +9,14 @@ To create a web browser based password generator. So that emlpoyees can create t
 
 To launch, go to: [https://bjschoffman.github.io/Random-Generator.github.io/](https://bjschoffman.github.io/Random-Generator.github.io/) 
 
-![Landing Page](/images/image-1.png)    
+Landing Page
+![Landing Page](/images/image-1.png)
 
-   
+First Prompt
+![First Prompt](/images/image-2.png)
 
-   
+Password Creation
+![Password Creation](/images/image-3.png)
 
 ## Credits
 
