@@ -1,50 +1,50 @@
 // Assignment code here
-var numbers = "0123456789";
 var uppercaseAlpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var lowercaseAlpha = "abcdefghijklmnopqrstuvwxyz";
-var specialCharacters = " !#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+var numbers = "1234567890";
+var specialCharacters = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
 var potentialCharacters = "";
 
 function generatePassword() {
-  
-  var characterLength = window.prompt()
+  // User selects character criteria from window prompts 
+  var characterLength = window.prompt("Choose password character length of between 8 and 128.");
   if (characterLength < 8 || characterLength > 128) {
-    window.alert("Please choose a valid character length.");
+    // Must select designated character length
+    window.alert("The character length must be between 8 and 128.");
     characterLength = window.prompt("Choose a character length of between 8 and 128.");
   } 
   
-  var lowerLetters = window.confirm("");
+  var lowerLetters = window.confirm("Would you like lowercase characters included in your password?");
   
-  var upperLetters = window.confirm("Do you want uppercase characters?");
+  var upperLetters = window.confirm("Would you like uppercase characters included in your password?");
   
-  var integers = window.confirm();
+  var integers = window.confirm("Would you like number characters included in your password?");
 
-  var special = window.confirm();
+  var special = window.confirm("Would you like special characters included in your password?");
 
-  if (lowerLetters === false && upperLetters === false && integers === false && special === false) {
-    window.alert("Please select at least one character type.");
-  };
-
- 
+  //Takes user's criteria and concatenates the strings
   if (lowerLetters) {
-    potentialCharacters = potentialCharacters.concat(lowercaseAlpha);
+    potentialCharacters += lowercaseAlpha;
   }
   if (upperLetters) {
-    potentialCharacters = potentialCharacters.concat(uppercaseAlpha);
+    potentialCharacters += uppercaseAlpha;
   }
   if (integers) {
-    potentialCharacters = potentialCharacters.concat(numbers);
+    potentialCharacters += numbers;
   }
   if (special) {
-    potentialCharacters = potentialCharacters.concat(specialCharacters);
+    potentialCharacters += specialCharacters;
   }
-
-  
-  var randomPassword = ""
-  
-  for (var i = 0; i < characterLength; i++) {
-    var mix = [Math.floor(Math.random() * potentialCharacters.length)];
-    randomPassword = randomPassword + potentialCharacters[mix];
+  //To make sure that the user selects at least one criterion
+  if (!lowerLetters && !upperLetters && !integers && !special) {
+    window.alert("Please select at least one character type.");
+  };
+  // Blank string to allow for the random password generation
+  let randomPassword = ""
+  //Loops through the concatenated user's criteria and then generates a radom password
+  for (let i = 0; i < characterLength; i++) {
+    let mix = [Math.floor(Math.random() * potentialCharacters.length)];
+    (randomPassword += potentialCharacters[mix]);
   }
   return randomPassword;
 };
